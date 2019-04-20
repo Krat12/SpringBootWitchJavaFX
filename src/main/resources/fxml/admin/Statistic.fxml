@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXDrawer?>
+<?import com.jfoenix.controls.JFXHamburger?>
+<?import com.jfoenix.controls.JFXTabPane?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+
+<StackPane fx:id="rootPane" prefHeight="767.0" prefWidth="1133.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.diplom.electronicrecord.controller.admin.TabManager">
+   <children>
+      <JFXDrawer fx:id="drawer" defaultDrawerSize="150.0" prefHeight="625.0" prefWidth="1031.0" resizableOnDrag="true" resizeContent="true" styleClass="jfx-drawer" />
+      <AnchorPane id="AnchorPane" fx:id="contentPane" prefHeight="525.0" prefWidth="798.0" style="-fx-background-color: #2D75E8;">
+         <children>
+            <AnchorPane id="AnchorPane" prefHeight="681.0" prefWidth="919.0" style="-fx-background-color: #2D75E8;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <JFXTabPane prefHeight="767.0" prefWidth="933.0" rotateGraphic="true" stylesheets="@../../styles/tabMenu.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <tabs>
+                        <fx:include fx:id="StudentTab" source="tabs/StudentTab.fxml" />
+                        <fx:include fx:id="ReportTab" source="tabs/ReportTab.fxml" />
+                     </tabs>
+
+                     <effect>
+                        <Blend />
+                     </effect>
+                  </JFXTabPane>
+                  <JFXHamburger fx:id="hamburger" alignment="CENTER" layoutX="889.0" layoutY="89.0" prefHeight="26.0" prefWidth="30.0" style="-fx-spacing: 6;" styleClass="jfx-hamburger-icon" stylesheets="@../../styles/theme.css" AnchorPane.rightAnchor="14.0">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </JFXHamburger>
+               </children>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>

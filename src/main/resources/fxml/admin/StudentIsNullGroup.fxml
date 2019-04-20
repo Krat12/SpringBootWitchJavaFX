@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+
+<StackPane fx:id="rootPane" prefHeight="725.0" prefWidth="509.0" stylesheets="@../../styles/theme.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.diplom.electronicrecord.controller.admin.StudentIsNullGroupController">
+   <children>
+      <AnchorPane id="AnchorPane" fx:id="contentPane" prefHeight="725.0" prefWidth="635.0" style="-fx-background-color: #2D75E8 #2D75E8;">
+         <children>
+            <TableView fx:id="tableView" layoutY="92.0" prefHeight="633.0" prefWidth="509.0" stylesheets="@../../styles/table.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="92.0">
+               <columns>
+                  <TableColumn fx:id="numberStudent" maxWidth="150.0" minWidth="30.0" prefWidth="40.0" resizable="false" text="№" />
+                  <TableColumn fx:id="fullName" maxWidth="2500.0" prefWidth="204.46197509765625" text="ФИО" />
+                  <TableColumn fx:id="numberRecord" minWidth="0.0" prefWidth="117.2734375" text="Номер зачетки" />
+                  <TableColumn fx:id="login" maxWidth="2500.0" minWidth="1.57525634765625" prefWidth="66.9383544921875" text="Логин" />
+                  <TableColumn fx:id="id" maxWidth="2800.0" prefWidth="75.0" text="Id" visible="false" />
+                  <TableColumn fx:id="password" minWidth="0.0" prefWidth="0.0" text="Пароль" />
+               </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+            </TableView>
+            <ToolBar layoutY="14.0" prefHeight="49.0" prefWidth="577.0" style="-fx-background-color: #2D75E8;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <items>
+                  <JFXButton contentDisplay="TOP" onAction="#handleRefresh" prefHeight="64.0" prefWidth="83.0" style="-fx-border-color: white;" styleClass="toolBarButton" text="Обновить" textFill="WHITE">
+                     <graphic>
+                        <FontAwesomeIconView glyphName="REFRESH" size="30" strokeLineJoin="ROUND" style="-fx-fill: white;" />
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </JFXButton>
+                  <Separator orientation="VERTICAL" prefHeight="10.0" prefWidth="0.0" scaleX="0.0" style="-fx-background-color: white;" />
+                  <JFXButton contentDisplay="TOP" onAction="#handleStudentAddOption" prefHeight="65.0" prefWidth="83.0" styleClass="toolBarButton" text="Добавить" textFill="WHITE">
+                     <graphic>
+                        <FontAwesomeIconView glyphName="PLUS" size="30" strokeLineJoin="ROUND" style="-fx-fill: white;" />
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </JFXButton>
+                  <Separator orientation="VERTICAL" prefHeight="10.0" prefWidth="0.0" scaleX="0.0" style="-fx-background-color: white;" />
+                  <JFXButton contentDisplay="TOP" onAction="#handleStudentDeleteOption" prefHeight="65.0" prefWidth="83.0" style="-fx-border-color: white;" styleClass="toolBarButton" text="Удалить" textFill="WHITE">
+                     <graphic>
+                        <FontAwesomeIconView glyphName="CLOSE" size="30" strokeLineJoin="ROUND" style="-fx-fill: white;" />
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </JFXButton>
+                  <Separator orientation="VERTICAL" prefHeight="10.0" prefWidth="0.0" scaleX="0.0" style="-fx-background-color: white;" />
+               </items>
+               <padding>
+                  <Insets left="17.0" />
+               </padding>
+            </ToolBar>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>

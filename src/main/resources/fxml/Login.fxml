@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="720.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.diplom.electronicrecord.controller.LoginController">
+   <children>
+      <StackPane layoutX="14.0" layoutY="236.0" prefHeight="150.0" prefWidth="200.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+         <effect>
+            <DropShadow />
+         </effect>
+         <children>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <VBox style="-fx-background-color: #2B6FDD;" HBox.hgrow="ALWAYS" />
+                  
+                  <VBox style="-fx-background-color: White;" HBox.hgrow="ALWAYS" />
+               </children>
+            </HBox>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+               <StackPane.margin>
+                  <Insets bottom="45.0" left="45.0" right="45.0" top="45.0" />
+               </StackPane.margin>
+               <children>
+                  <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="350.0" prefWidth="350.0" style="-fx-background-color: white;">
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                     <children>
+                        <FontAwesomeIconView fill="#a8a8a8" glyphName="LOCK" size="50">
+                           <VBox.margin>
+                              <Insets top="15.0" />
+                           </VBox.margin>
+                        </FontAwesomeIconView>
+                        <HBox alignment="CENTER_RIGHT" maxWidth="-Infinity" prefHeight="51.0" prefWidth="290.0" style="-fx-background-color: white;">
+                           <children>
+                              <FontAwesomeIconView fill="#a19d9d" glyphName="USER" size="25" style="-fx-fill: #b2b2b2;" wrappingWidth="19.64285659790039">
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </FontAwesomeIconView>
+                              <JFXTextField fx:id="txt_login" focusColor="#2b6fdd" labelFloat="true" onAction="#input" prefHeight="25.0" prefWidth="291.0" promptText="Имя пользователя" style="-fx-text-fill: #2B6FDD;" unFocusColor="#b5b4b4">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets bottom="7.0" left="10.0" right="7.0" top="7.0" />
+                                 </HBox.margin>
+                              </JFXTextField>
+                           </children>
+                           <VBox.margin>
+                              <Insets top="30.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER_RIGHT" maxWidth="-Infinity" prefHeight="28.0" prefWidth="290.0" style="-fx-background-color: white;">
+                           <children>
+                              <FontAwesomeIconView glyphName="KEY" size="25" style="-fx-fill: #b2b2b2;" wrappingWidth="23.0" />
+                              <JFXPasswordField fx:id="txt_password" focusColor="#2b6fdd" labelFloat="true" prefHeight="37.0" prefWidth="255.0" promptText="Пароль" style="-fx-text-fill: #2B6FDD;" stylesheets="@../styles/button.css" unFocusColor="#b5b4b4">
+                                 <HBox.margin>
+                                    <Insets bottom="7.0" left="10.0" right="7.0" top="7.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </JFXPasswordField>
+                           </children>
+                           <VBox.margin>
+                              <Insets top="20.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox prefHeight="87.0" prefWidth="330.0">
+                           <children>
+                              <JFXButton fx:id="loginButton" alignment="CENTER" onAction="#input" prefHeight="39.0" prefWidth="198.0" style="-fx-border-color: #2B6FDD; -fx-background-radius: 20px; -fx-border-radius: 20px;" styleClass="login-button" text="Войти" textFill="#2b6fdd">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="70.0" top="40.0" />
+                                 </HBox.margin>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </JFXButton>
+                           </children>
+                        </HBox>
+                        <Text fx:id="UserIsNull" fill="#ff515a" strokeType="OUTSIDE" strokeWidth="0.0" text="Пользователя не существует" textAlignment="CENTER" visible="false">
+                           <VBox.margin>
+                              <Insets left="8.0" />
+                           </VBox.margin>
+                        </Text>
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </VBox>
+               </children>
+            </VBox>
+         </children>
+      </StackPane>
+   </children>
+</AnchorPane>

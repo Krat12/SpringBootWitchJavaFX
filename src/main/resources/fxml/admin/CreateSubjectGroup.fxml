@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="254.0" prefWidth="406.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.diplom.electronicrecord.controller.admin.CreateSubjectGroupController">
+   <children>
+      <ComboBox fx:id="comboBoxTeacher" layoutX="70.0" layoutY="52.0" prefHeight="29.0" prefWidth="266.0" promptText="Преподаватель" style="-fx-border-radius: 20px; -fx-font-size: 13;" />
+      <JFXButton alignment="CENTER" layoutX="70.0" layoutY="182.0" onAction="#save" prefHeight="39.0" prefWidth="116.0" style="-fx-border-color: #2B6FDD; -fx-background-radius: 20px; -fx-border-radius: 20px;" styleClass="login-button" text="Сохранить" textFill="#2b6fdd">
+         <font>
+            <Font size="16.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton alignment="CENTER" layoutX="222.0" layoutY="182.0" onAction="#cancel" prefHeight="39.0" prefWidth="116.0" style="-fx-border-color: #2B6FDD; -fx-background-radius: 20px; -fx-border-radius: 20px;" styleClass="login-button" text="Отмена" textFill="#2b6fdd">
+         <font>
+            <Font size="16.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <ComboBox fx:id="comboBoxSubject" layoutX="70.0" layoutY="111.0" prefHeight="29.0" prefWidth="266.0" promptText="Предмет" style="-fx-border-radius: 20px; -fx-font-size: 13;" />
+   </children>
+</AnchorPane>

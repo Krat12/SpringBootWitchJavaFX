@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import impl.com.calendarfx.view.NumericTextField?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="411.0" prefWidth="369.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.diplom.electronicrecord.controller.teacher.CreateReportController">
+   <children>
+      <JFXButton alignment="CENTER" layoutX="61.0" layoutY="332.0" onAction="#save" prefHeight="39.0" prefWidth="116.0" style="-fx-border-color: #2B6FDD; -fx-background-radius: 20px; -fx-border-radius: 20px;" styleClass="login-button" text="Создать" textFill="#2b6fdd">
+         <font>
+            <Font size="16.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton alignment="CENTER" layoutX="209.0" layoutY="333.0" onAction="#cancel" prefHeight="39.0" prefWidth="116.0" style="-fx-border-color: #2B6FDD; -fx-background-radius: 20px; -fx-border-radius: 20px;" styleClass="login-button" text="Отмена" textFill="#2b6fdd">
+         <font>
+            <Font size="16.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <ComboBox fx:id="cmb_subject" layoutX="60.0" layoutY="49.0" prefHeight="25.0" prefWidth="261.0" promptText="Предмет" style="-fx-font-size: 16;" />
+      <ComboBox fx:id="cmb_typeMark" layoutX="60.0" layoutY="114.0" prefHeight="25.0" prefWidth="261.0" promptText="Тип оценки" style="-fx-font-size: 16;" />
+      <JFXDatePicker fx:id="creationDate" defaultColor="#2b6fdd" layoutX="170.0" layoutY="245.0" prefHeight="37.0" prefWidth="152.0" style="-fx-font-size: 16;">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXDatePicker>
+      <NumericTextField fx:id="txt_hours" layoutX="60.0" layoutY="184.0" prefHeight="39.0" prefWidth="261.0" promptText="Количество часов">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </NumericTextField>
+   </children>
+</AnchorPane>

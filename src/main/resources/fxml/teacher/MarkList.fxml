@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+
+<StackPane fx:id="rootPane" prefHeight="725.0" prefWidth="676.0" stylesheets="@../../styles/theme.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.diplom.electronicrecord.controller.teacher.MarkControllerTeacher">
+   <children>
+      <AnchorPane id="AnchorPane" fx:id="contentPane" prefHeight="685.0" prefWidth="598.0" style="-fx-background-color: #2D75E8 #2D75E8;">
+         <children>
+            <TableView fx:id="tableView" layoutY="115.0" onKeyPressed="#handleKeyAchievement" onMouseClicked="#handleMouseClicked" prefHeight="611.0" prefWidth="577.0" stylesheets="@../../styles/table.css" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="115.0">
+              <columns>
+                <TableColumn fx:id="numberStudent" maxWidth="308.0" minWidth="0.0" prefWidth="34.0" resizable="false" text="№" />
+                <TableColumn fx:id="fullName" maxWidth="2500.0" prefWidth="314.0" text="ФИО" />
+                  <TableColumn fx:id="colMark" maxWidth="1000.0" minWidth="0.0" prefWidth="185.0" text="Оценка" />
+                  <TableColumn fx:id="thesis" maxWidth="2500.0" minWidth="1.57525634765625" prefWidth="66.9383544921875" text="Тема  диплома" visible="false" />
+                  <TableColumn fx:id="placePractice" minWidth="0.0" prefWidth="0.0" text="Место прохождение" visible="false" />
+                  <TableColumn fx:id="colFullNameBoss" minWidth="0.0" prefWidth="0.0" text="Руководитель" visible="false" />
+              </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+               <contextMenu>
+                  <ContextMenu style="-fx-base: #0e67f7;" styleClass="table-context">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#handleRefresh" text="Обновить" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleStudentAddOption" text="Добавить" />
+                    </items>
+                  </ContextMenu>
+               </contextMenu>
+            </TableView>
+            <MenuBar layoutX="-15.0" layoutY="10.0" prefHeight="30.0" prefWidth="592.0" AnchorPane.leftAnchor="-15.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <menus>
+                  <Menu mnemonicParsing="false" text="File">
+                     <items>
+                        <Menu mnemonicParsing="false" text="Сохранить как">
+                          <items>
+                              <MenuItem mnemonicParsing="false" onAction="#exportAsPDF" text="Expert as PDF" />
+                              <MenuItem mnemonicParsing="false" onAction="#exportCSV" text="Expert as CSV" />
+                              <MenuItem mnemonicParsing="false" onAction="#exportAsPDF" text="Expert as XML" />
+                          </items>
+                        </Menu>
+                        <MenuItem mnemonicParsing="false" onAction="#closeStage" text="Выйти" />
+                     </items>
+                  </Menu>
+               </menus>
+            </MenuBar>
+            <ToolBar layoutX="1.0" layoutY="30.0" prefHeight="49.0" prefWidth="577.0" style="-fx-background-color: #2D75E8;" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="0.0">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <items>
+                  <JFXButton fx:id="btn_commit" contentDisplay="TOP" onAction="#handleStudentCommit" prefHeight="62.0" prefWidth="83.0" styleClass="toolBarButton" text="Сохранить" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP">
+                     <graphic>
+                        <FontAwesomeIconView fx:id="commit" glyphName="CHECK" size="30" strokeLineJoin="ROUND" style="-fx-fill: white;" wrappingWidth="30.0" />
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </JFXButton>
+                  <Separator orientation="VERTICAL" prefHeight="10.0" prefWidth="0.0" scaleX="0.0" style="-fx-background-color: white;" />
+                  <JFXButton fx:id="btn_rollback" contentDisplay="TOP" onAction="#handleStudentRolback" prefHeight="62.0" prefWidth="83.0" styleClass="toolBarButton" text="Отменить" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP">
+                     <graphic>
+                        <FontAwesomeIconView fx:id="rollback" glyphName="CLOSE" size="30" strokeLineJoin="ROUND" style="-fx-fill: white;" />
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </JFXButton>
+                  <Separator orientation="VERTICAL" prefHeight="10.0" prefWidth="0.0" scaleX="0.0" style="-fx-background-color: white;" />
+                  <JFXButton contentDisplay="TOP" onAction="#handleStudentAddOption" prefHeight="65.0" prefWidth="83.0" styleClass="toolBarButton" text="Добавить" textFill="WHITE">
+                     <graphic>
+                        <FontAwesomeIconView glyphName="PLUS" size="30" strokeLineJoin="ROUND" style="-fx-fill: white;" />
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </JFXButton>
+                  <Separator orientation="VERTICAL" prefHeight="10.0" prefWidth="0.0" scaleX="0.0" style="-fx-background-color: white;" />
+                  <JFXButton contentDisplay="TOP" onAction="#handleRefresh" prefHeight="64.0" prefWidth="83.0" style="-fx-border-color: white;" styleClass="toolBarButton" text="Обновить" textFill="WHITE">
+                     <graphic>
+                        <FontAwesomeIconView glyphName="REFRESH" size="30" strokeLineJoin="ROUND" style="-fx-fill: white;" />
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </JFXButton>
+                  <Separator orientation="VERTICAL" prefHeight="10.0" prefWidth="0.0" scaleX="0.0" style="-fx-background-color: white;" />
+               </items>
+               <padding>
+                  <Insets left="17.0" />
+               </padding>
+            </ToolBar>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>

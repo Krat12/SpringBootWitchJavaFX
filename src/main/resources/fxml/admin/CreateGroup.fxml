@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="298.0" prefWidth="406.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.diplom.electronicrecord.controller.admin.CreateGroupController">
+   <children>
+      <JFXTextField fx:id="txt_nameGroup" focusColor="#2b6fdd" labelFloat="true" layoutX="38.0" layoutY="38.0" prefHeight="25.0" prefWidth="354.0" promptText="Название группы" style="-fx-text-fill: #2B6FDD;" unFocusColor="#a1a5ab">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </JFXTextField>
+      <ComboBox fx:id="specialityComboBox" layoutX="38.0" layoutY="166.0" prefHeight="25.0" prefWidth="242.0" promptText="Специальность" style="-fx-border-radius: 20px; -fx-font-size: 13;" />
+      <JFXCheckBox fx:id="CheckSpeciality" checkedColor="#2b6fdd" layoutX="291.0" layoutY="172.0" onAction="#CheckComboBox" text="В списке нет">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </JFXCheckBox>
+      <JFXButton alignment="CENTER" layoutX="70.0" layoutY="226.0" onAction="#save" prefHeight="39.0" prefWidth="116.0" style="-fx-border-color: #2B6FDD; -fx-background-radius: 20px; -fx-border-radius: 20px;" styleClass="login-button" text="Сохранить" textFill="#2b6fdd">
+         <font>
+            <Font size="16.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton alignment="CENTER" layoutX="222.0" layoutY="226.0" onAction="#cancel" prefHeight="39.0" prefWidth="116.0" style="-fx-border-color: #2B6FDD; -fx-background-radius: 20px; -fx-border-radius: 20px;" styleClass="login-button" text="Отмена" textFill="#2b6fdd">
+         <font>
+            <Font size="16.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXTextField fx:id="txt_year" focusColor="#2b6fdd" labelFloat="true" layoutX="38.0" layoutY="103.0" prefHeight="25.0" prefWidth="354.0" promptText="Год создания" style="-fx-text-fill: #2B6FDD;" unFocusColor="#a1a5ab">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </JFXTextField>
+      <TextField fx:id="txt_speciality" layoutX="38.0" layoutY="163.0" prefHeight="37.0" prefWidth="242.0" promptText="Специальность" style="-fx-background-radius: 5px; -fx-border-radius: 5px;" visible="false">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </TextField>
+   </children>
+</AnchorPane>

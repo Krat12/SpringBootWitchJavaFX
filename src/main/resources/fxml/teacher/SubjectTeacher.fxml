@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+
+<StackPane prefHeight="502.0" prefWidth="500.0" stylesheets="@../../styles/theme.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.diplom.electronicrecord.controller.teacher.SubjectControllerTeacher">
+   <children>
+      <AnchorPane id="AnchorPane" style="-fx-background-color: #2D75E8;">
+         <children>
+            <TableView fx:id="tableView" layoutY="-2.0" prefHeight="521.0" prefWidth="416.0" stylesheets="@../../styles/table.css" AnchorPane.bottomAnchor="-17.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-2.0">
+              <columns>
+                  <TableColumn fx:id="colGroup" editable="true" prefWidth="211.0" styleClass="table-columnSubject" text="Группа" />
+                  <TableColumn fx:id="colSubject" prefWidth="251.0" text="Предмет" />
+                  <TableColumn fx:id="id" maxWidth="2800.0" prefWidth="75.0" text="Id" visible="false" />
+                  <TableColumn fx:id="col_hours" prefWidth="75.0" text="Количество часов" />
+              </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+            </TableView>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>

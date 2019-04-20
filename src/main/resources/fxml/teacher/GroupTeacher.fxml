@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXDrawer?>
+<?import com.jfoenix.controls.JFXHamburger?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane fx:id="rootPane" prefHeight="743.0" prefWidth="614.0" stylesheets="@../../styles/theme.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.diplom.electronicrecord.controller.teacher.GroupControllerTeacher">
+   <children>
+      <JFXDrawer fx:id="drawer" defaultDrawerSize="150.0" prefHeight="625.0" prefWidth="1031.0" resizableOnDrag="true" resizeContent="true" styleClass="jfx-drawer" />
+      <AnchorPane id="AnchorPane" fx:id="contentPane" prefHeight="743.0" prefWidth="553.0" style="-fx-background-color: #2D75E8;">
+         <children>
+            <AnchorPane layoutX="-1.0" layoutY="178.0" prefHeight="567.0" prefWidth="585.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-1.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="178.0">
+               <children>
+                  <TableView fx:id="tableView" onMouseClicked="#SelectGroup" prefHeight="292.0" prefWidth="574.0" stylesheets="@../../styles/table.css" AnchorPane.bottomAnchor="-6.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <columns>
+                        <TableColumn fx:id="groupCol" prefWidth="271.3411865234375" text="Группа" />
+                        <TableColumn fx:id="yearCol" prefWidth="204.2645263671875" text="Год создания" />
+                        <TableColumn fx:id="id" maxWidth="2800.0" prefWidth="75.0" text="Id" visible="false" />
+                    </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </TableView>
+               </children>
+            </AnchorPane>
+            <JFXHamburger fx:id="hamburger" alignment="CENTER" layoutX="466.0" layoutY="114.0" prefHeight="37.0" prefWidth="51.0" style="-fx-spacing: 5;" styleClass="jfx-hamburger-icon" stylesheets="@../../styles/theme.css" AnchorPane.rightAnchor="1.0">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXHamburger>
+            <HBox layoutX="2.0" layoutY="93.0" prefHeight="77.0" prefWidth="496.0" style="-fx-background-color: #2D75E8;" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="52.0">
+               <children>
+                  <TextField fx:id="txt_search" prefHeight="37.0" prefWidth="341.0" promptText="Поиск" style="-fx-background-radius: 20px; -fx-border-color: transparent;">
+                     <HBox.margin>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </HBox>
+            <ToolBar layoutY="16.0" prefHeight="49.0" prefWidth="550.0" style="-fx-background-color: #2D75E8;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <items>
+                  <JFXButton contentDisplay="TOP" onAction="#handleStudentList" prefHeight="65.0" prefWidth="86.0" styleClass="toolBarButton" text="Студенты" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP">
+                     <graphic>
+                        <FontAwesomeIconView glyphName="GROUP" size="30" strokeLineJoin="ROUND" style="-fx-fill: white;" />
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </JFXButton>
+                  <Separator orientation="VERTICAL" prefHeight="10.0" prefWidth="0.0" scaleX="0.0" style="-fx-background-color: white;" />
+                  <JFXButton contentDisplay="TOP" onAction="#handleRefresh" prefHeight="65.0" prefWidth="86.0" style="-fx-border-color: white;" styleClass="toolBarButton" text="Обновить" textFill="WHITE">
+                     <graphic>
+                        <FontAwesomeIconView glyphName="REFRESH" size="30" strokeLineJoin="ROUND" style="-fx-fill: white;" />
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </JFXButton>
+                  <Separator orientation="VERTICAL" prefHeight="10.0" prefWidth="0.0" scaleX="0.0" style="-fx-background-color: white;" />
+                  <JFXButton contentDisplay="TOP" onAction="#handleOpenStatement" prefHeight="65.0" prefWidth="86.0" style="-fx-border-color: white;" styleClass="toolBarButton" text="Отчетность" textFill="WHITE">
+                     <graphic>
+                        <FontAwesomeIconView glyphName="FILE" size="30" strokeLineJoin="ROUND" style="-fx-fill: white;" />
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </JFXButton>
+                  <Separator orientation="VERTICAL" prefHeight="10.0" prefWidth="0.0" scaleX="0.0" style="-fx-background-color: white;" />
+                  <JFXButton contentDisplay="TOP" onAction="#handleOpenMark" prefHeight="65.0" prefWidth="86.0" style="-fx-border-color: white;" styleClass="toolBarButton" text="Оценки" textFill="WHITE">
+                     <graphic>
+                        <FontAwesomeIconView glyphName="TABLE" size="30" strokeLineJoin="ROUND" style="-fx-fill: white;" />
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </JFXButton>
+                  <Separator orientation="VERTICAL" prefHeight="10.0" prefWidth="0.0" scaleX="0.0" style="-fx-background-color: white;" />
+                  <JFXButton contentDisplay="TOP" onAction="#handleSubjectTeacher" prefHeight="65.0" prefWidth="86.0" style="-fx-border-color: white;" styleClass="toolBarButton" text="Предметы" textFill="WHITE">
+                     <graphic>
+                        <FontAwesomeIconView glyphName="BOOK" size="30" strokeLineJoin="ROUND" style="-fx-fill: white;" />
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </JFXButton>
+                  <Separator orientation="VERTICAL" prefHeight="10.0" prefWidth="0.0" scaleX="0.0" style="-fx-background-color: white;" />
+                  <JFXButton contentDisplay="TOP" onAction="#handleOpenProfile" prefHeight="65.0" prefWidth="86.0" style="-fx-border-color: white;" styleClass="toolBarButton" text="Профиль" textFill="WHITE">
+                     <graphic>
+                        <FontAwesomeIconView glyphName="USER" size="30" strokeLineJoin="ROUND" style="-fx-fill: white;" />
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </JFXButton>
+               </items>
+               <padding>
+                  <Insets left="18.0" />
+               </padding>
+            </ToolBar>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>

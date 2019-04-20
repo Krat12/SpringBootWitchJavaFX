@@ -1,0 +1,105 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 29.01.2019, 23:49:15
+    Author     : Admin
+*/
+* {
+    -fx-primary : #2D75E8;
+    -fx-secondary : #FFFF8D;
+    -fx-primarytext : #B2B2B2;
+    -fx-blue: #1976D2;
+    -fx-red: #FF0000;
+    -fx-color-1:#1976D2;
+}
+.table-view{
+    -fx-font-size: 16px; 
+}
+
+.table-row-cell {
+    -fx-cell-size: 40px;
+}
+.table-view .column-header-background{
+    -fx-background-color: -fx-primary;
+}
+.table-view .column-header-background .label{
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+}
+.table-view .column-header {
+    -fx-background-color: transparent;
+}
+.table-view .table-cell{
+    -fx-text-fill: #0e67f7;
+}
+.menu-bar{
+    -fx-font-size: 14;
+    -fx-base : -fx-primary;
+    -fx-background-color: -fx-primary;
+}
+
+
+.table-row-cell{
+    -fx-background-color: #eaf2ff;
+    -fx-border-color: transparent;
+    -fx-table-cell-border-color: transparent;
+}
+.context-menu
+{
+    -fx-background-color:  derive(-fx-primary, 20%);
+}
+.table-column{
+    -fx-alignment: CENTER;
+}
+
+.table-columnSubject{
+    -fx-alignment: center-left;
+}
+
+.table-row-cell:even{
+    -fx-background-color: derive(#eaf2ff, 20%);
+}
+.table-row-cell:selected {
+    -fx-background-color: #2D75E8;
+    -fx-text-fill: -fx-primary;
+    -fx-background-insets: 0;
+}
+.table-row-cell:selected .table-cell{
+    -fx-text-fill: white;
+}
+.placeholder .label{
+    -fx-text-fill: white;
+}
+.table-view > .virtual-flow > .scroll-bar:vertical,
+.table-view > .virtual-flow > .scroll-bar:vertical > .track,
+.table-view > .virtual-flow > .scroll-bar:vertical > .track-background, 
+.table-view > .virtual-flow > .scroll-bar:horizontal,
+.table-view > .virtual-flow > .scroll-bar:horizontal > .track,
+.table-view > .virtual-flow > .scroll-bar:horizontal > .track-background {
+    -fx-background-color: transparent;
+}
+.table-view > .virtual-flow > .scroll-bar > .increment-button, 
+.table-view > .virtual-flow > .scroll-bar > .decrement-button {
+    -fx-text-fill: white;
+}
+.scroll-bar:horizontal .thumb,
+.scroll-bar:vertical .thumb{
+    -fx-background-color: derive(-fx-primary, 60%);
+    -fx-border-color: transparent;
+    -fx-background-radius: 5em;
+}
+.table-view .filler{
+    -fx-fill: -fx-primary;
+    -fx-background-color: -fx-primary;
+}
+.jfx-combo-box {
+    -fx-prompt-text-fill: white;
+    -fx-font-size: 16px;
+}
+.jfx-combo-box:focused {
+    -fx-prompt-text-fill: #beb2dd;
+    -fx-font-size: 16px;
+}

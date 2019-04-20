@@ -1,0 +1,14 @@
+.button_login{
+
+    -fx-background-radius: 100px;
+    -fx-text-fill: white;
+    -fx-background-color: #3498DB;
+     transition: 0.5s;
+}
+
+.button_login:hover{
+    -fx-text-fill:#3498DB;
+    -fx-background-color:rgb(255,255,255);
+    -fx-border-radius:100px;
+    -fx-border-color:#3498DB;
+}

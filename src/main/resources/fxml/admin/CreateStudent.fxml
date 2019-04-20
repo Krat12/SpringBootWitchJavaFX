@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="542.0" prefWidth="406.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.diplom.electronicrecord.controller.admin.CreateStudentController">
+   <children>
+      <JFXTextField fx:id="txt_surname" focusColor="#2b6fdd" labelFloat="true" layoutX="38.0" layoutY="38.0" prefHeight="37.0" prefWidth="331.0" promptText="Фамилия" style="-fx-text-fill: #2B6FDD;" unFocusColor="#a1a5ab">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </JFXTextField>
+      <JFXButton alignment="CENTER" layoutX="69.0" layoutY="487.0" onAction="#save" prefHeight="39.0" prefWidth="116.0" style="-fx-border-color: #2B6FDD; -fx-background-radius: 20px; -fx-border-radius: 20px;" styleClass="login-button" text="Сохранить" textFill="#2b6fdd">
+         <font>
+            <Font size="16.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton alignment="CENTER" layoutX="221.0" layoutY="487.0" onAction="#cancel" prefHeight="39.0" prefWidth="116.0" style="-fx-border-color: #2B6FDD; -fx-background-radius: 20px; -fx-border-radius: 20px;" styleClass="login-button" text="Отмена" textFill="#2b6fdd">
+         <font>
+            <Font size="16.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXTextField fx:id="txt_name" focusColor="#2b6fdd" labelFloat="true" layoutX="38.0" layoutY="103.0" prefHeight="37.0" prefWidth="331.0" promptText="Имя" style="-fx-text-fill: #2B6FDD;" unFocusColor="#a1a5ab">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="txt_patronymic" focusColor="#2b6fdd" labelFloat="true" layoutX="38.0" layoutY="170.0" prefHeight="37.0" prefWidth="331.0" promptText="Отчество" style="-fx-text-fill: #2B6FDD;" unFocusColor="#a1a5ab">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="txt_numberRecord" focusColor="#2b6fdd" labelFloat="true" layoutX="38.0" layoutY="236.0" prefHeight="37.0" prefWidth="331.0" promptText="Номер зачетки" style="-fx-text-fill: #2B6FDD;" unFocusColor="#a1a5ab">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="txt_login" focusColor="#2b6fdd" labelFloat="true" layoutX="38.0" layoutY="303.0" prefHeight="37.0" prefWidth="331.0" promptText="Логин" style="-fx-text-fill: #2B6FDD;" unFocusColor="#a1a5ab">
+         <font>
+            <Font size="16.0" />
+         </font>
+         <contextMenu>
+            <ContextMenu>
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#handleAutoGenerationLogin" text="Сгенерировать логин" />
+              </items>
+            </ContextMenu>
+         </contextMenu>
+      </JFXTextField>
+      <JFXPasswordField fx:id="txt_password" focusColor="#2b6fdd" labelFloat="true" layoutX="38.0" layoutY="371.0" prefHeight="37.0" prefWidth="331.0" promptText="Пароль" unFocusColor="#a1a5ab">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </JFXPasswordField>
+      <ComboBox fx:id="groupComboBox" layoutX="38.0" layoutY="422.0" prefHeight="30.0" prefWidth="116.0" promptText="Группа" style="-fx-font-size: 14;" visible="false" />
+      <FontAwesomeIconView fx:id="lbl_surname" fill="#ff515a" glyphName="CIRCLE" layoutX="380.0" layoutY="61.0" size="7" visible="false" />
+      <FontAwesomeIconView fx:id="lbl_name" fill="#ff515a" glyphName="CIRCLE" layoutX="380.0" layoutY="128.0" size="7" visible="false" />
+      <FontAwesomeIconView fx:id="lbl_midleName" fill="#ff515a" glyphName="CIRCLE" layoutX="380.0" layoutY="191.0" size="7" visible="false" />
+      <FontAwesomeIconView fx:id="lbl_NumberRecord" fill="#ff515a" glyphName="CIRCLE" layoutX="380.0" layoutY="258.0" size="7" visible="false" />
+      <FontAwesomeIconView fx:id="lbl_login" fill="#ff515a" glyphName="CIRCLE" layoutX="380.0" layoutY="326.0" size="7" visible="false" />
+      <FontAwesomeIconView fx:id="lbl_password" fill="#ff515a" glyphName="CIRCLE" layoutX="380.0" layoutY="394.0" size="7" visible="false" />
+      <Text fx:id="txt_error" fill="#ff515a" layoutX="158.0" layoutY="433.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Заполните все поля" visible="false" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXToggleButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Tab fx:id="tab_student" styleClass="tab-main" text="По студентам" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.diplom.electronicrecord.controller.admin.StudentStatisticController">
+   <content>
+      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+         <children>
+            <HBox layoutX="14.0" layoutY="83.0" prefHeight="35.0" prefWidth="880.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="39.0">
+               <children>
+                  <JFXToggleButton fx:id="tab_firsSemester" onAction="#handleFirstSemester" text="Первый симестр" textFill="WHITE" toggleColor="#009485">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </JFXToggleButton>
+                  <JFXToggleButton fx:id="tab_secondSemester" onAction="#handleSecondSemester" text="Второй симестр" textFill="WHITE" toggleColor="#009485">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </JFXToggleButton>
+                  <JFXButton id="autoGenerationButton" onAction="#handleCreateDiagram" prefHeight="32.0" prefWidth="209.0" style="-fx-border-color: #FFFF; -fx-border-radius: 20px; -fx-background-radius: 20px;" styleClass="autoGenerationButton" stylesheets="@../../../styles/theme.css" text="Сформировать диагармму" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <HBox.margin>
+                        <Insets top="12.0" />
+                     </HBox.margin>
+                  </JFXButton>
+               </children>
+            </HBox>
+            <SplitPane dividerPositions="0.35123523093447906" layoutY="137.0" prefHeight="531.0" prefWidth="933.0" style="-fx-background-color: #2D75E8; -fx-border-color: white; -fx-border-width: 1 0 0 0;" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="137.0">
+               <items>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="528.0" prefWidth="474.0" style="-fx-background-color: #2D75E8;">
+                     <children>
+                        <TableView fx:id="tb_groups" layoutX="-1.0" layoutY="-2.0" prefHeight="537.0" prefWidth="379.0" style="-fx-border-color: #2D75E8;" stylesheets="@../../../styles/table.css" AnchorPane.bottomAnchor="-7.0" AnchorPane.leftAnchor="-1.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="-2.0">
+                           <columns>
+                              <TableColumn fx:id="col_groupName" prefWidth="327.0" text="Группа" />
+                           </columns>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="528.0" prefWidth="464.0" style="-fx-background-color: #2D75E8;">
+                     <children>
+                        <Label fx:id="caption" layoutX="499.0" layoutY="454.0" textFill="WHITE" AnchorPane.bottomAnchor="47.0" AnchorPane.leftAnchor="499.0" AnchorPane.rightAnchor="102.0" AnchorPane.topAnchor="454.0">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <PieChart fx:id="chart" layoutX="-1.0" prefHeight="529.0" prefWidth="606.0" stylesheets="@../../../styles/Chart.css" visible="false" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="-1.0" AnchorPane.rightAnchor="-4.0" AnchorPane.topAnchor="0.0" />
+                        <HBox fx:id="txt_stub" alignment="CENTER" layoutY="-1.0" prefHeight="529.0" prefWidth="601.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-1.0">
+                           <children>
+                              <Text fx:id="txt_text" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Выберите группу и симестр">
+                                 <font>
+                                    <Font name="System Bold" size="24.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </HBox>
+                     </children>
+                  </AnchorPane>
+               </items>
+            </SplitPane>
+            <ToolBar layoutY="12.0" prefHeight="65.0" prefWidth="866.0" style="-fx-background-color: #2D75E8;" stylesheets="@../../../styles/theme.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="67.0">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <items>
+                  <JFXButton contentDisplay="TOP" onAction="#handleOneCourse" prefHeight="64.0" prefWidth="83.0" style="-fx-border-color: white;" styleClass="toolBarButton" text="Курс" textFill="WHITE">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <graphic>
+                        <Text fill="#f8f8f8" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 13;" text="Первый" />
+                     </graphic>
+                  </JFXButton>
+                  <Separator orientation="VERTICAL" prefHeight="10.0" prefWidth="0.0" scaleX="0.0" style="-fx-background-color: white;" />
+                  <JFXButton contentDisplay="TOP" onAction="#handleTwoCourse" prefHeight="62.0" prefWidth="83.0" styleClass="toolBarButton" text="курс" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <graphic>
+                        <Text fill="#f8f8f8" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 13;" text="Второй" />
+                     </graphic>
+                  </JFXButton>
+                  <Separator orientation="VERTICAL" prefHeight="10.0" prefWidth="0.0" scaleX="0.0" style="-fx-background-color: white;" />
+                  <JFXButton contentDisplay="TOP" onAction="#handleThreeCourse" prefHeight="65.0" prefWidth="83.0" styleClass="toolBarButton" text="курс" textFill="WHITE">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <graphic>
+                        <Text fill="#f8f8f8" strokeType="OUTSIDE" strokeWidth="0.0" text="Третий" />
+                     </graphic>
+                  </JFXButton>
+                  <Separator orientation="VERTICAL" prefHeight="10.0" prefWidth="0.0" scaleX="0.0" style="-fx-background-color: white;" />
+                  <JFXButton contentDisplay="TOP" onAction="#handleFourCourse" prefHeight="65.0" prefWidth="83.0" style="-fx-border-color: white;" styleClass="toolBarButton" text="курс" textFill="WHITE">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <graphic>
+                        <Text fill="#f8f8f8" strokeType="OUTSIDE" strokeWidth="0.0" text="Четвертый" />
+                     </graphic>
+                  </JFXButton>
+                  <Separator orientation="VERTICAL" prefHeight="10.0" prefWidth="0.0" scaleX="0.0" style="-fx-background-color: white;" />
+                  <JFXButton contentDisplay="TOP" onAction="#handleCurrentCourse" prefHeight="65.0" prefWidth="83.0" style="-fx-border-color: white;" styleClass="toolBarButton" text="год" textFill="WHITE">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <graphic>
+                        <Text fill="#f8f8f8" strokeType="OUTSIDE" strokeWidth="0.0" text="Текущий" />
+                     </graphic>
+                  </JFXButton>
+               </items>
+               <padding>
+                  <Insets left="17.0" />
+               </padding>
+            </ToolBar>
+         </children>
+      </AnchorPane>
+   </content>
+</Tab>

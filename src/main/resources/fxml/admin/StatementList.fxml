@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXDrawer?>
+<?import com.jfoenix.controls.JFXHamburger?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.Bloom?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<StackPane fx:id="rootPane" prefHeight="681.0" prefWidth="919.0" stylesheets="@../../styles/theme.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.diplom.electronicrecord.controller.admin.StatementController">
+   <children>
+      <JFXDrawer fx:id="drawer" defaultDrawerSize="150.0" prefHeight="625.0" prefWidth="1031.0" resizableOnDrag="true" resizeContent="true" styleClass="jfx-drawer" />
+      <AnchorPane id="AnchorPane" fx:id="contentPane" prefHeight="525.0" prefWidth="798.0" style="-fx-background-color: #2D75E8;">
+         <children>
+            <JFXHamburger fx:id="hamburger" alignment="CENTER" layoutX="885.0" layoutY="11.0" prefHeight="20.0" prefWidth="24.0" styleClass="jfx-hamburger-icon" stylesheets="@../../styles/theme.css" AnchorPane.rightAnchor="10.0">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXHamburger>
+            <TableView fx:id="tableView" layoutY="130.0" onMouseClicked="#SelectRow" prefHeight="655.0" prefWidth="925.0" stylesheets="@../../styles/table.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="130.0">
+              <columns>
+                  <TableColumn fx:id="col_group" editable="true" maxWidth="3000.0" prefWidth="157.0" styleClass="table-columnSubject" text="Группа" />
+                  <TableColumn fx:id="colSubject" prefWidth="219.0" text="Предмет" />
+                  <TableColumn fx:id="colTeacher" prefWidth="148.0" text="Преподователь" />
+                  <TableColumn fx:id="colType" prefWidth="242.0" text="Тип" />
+                  <TableColumn fx:id="colHours" maxWidth="2000.0" prefWidth="174.0" text="Часы" />
+                  <TableColumn fx:id="colDate" prefWidth="138.0" text="Дата" />
+                  <TableColumn fx:id="id" prefWidth="75.0" text="id" visible="false" />
+              </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+            </TableView>
+            <ProgressIndicator fx:id="progressInd" layoutX="250.0" layoutY="260.0" prefHeight="198.0" prefWidth="424.0" visible="false" AnchorPane.bottomAnchor="223.0" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="245.0" AnchorPane.topAnchor="260.0">
+               <effect>
+                  <Bloom threshold="0.0">
+                     <input>
+                        <Lighting diffuseConstant="2.0" specularConstant="2.0" specularExponent="0.0" surfaceScale="10.0">
+                           <bumpInput>
+                              <Shadow color="#ff2626" height="0.24" radius="41.875" width="169.26" />
+                           </bumpInput>
+                           <light>
+                              <Light.Distant />
+                           </light>
+                        </Lighting>
+                     </input>
+                  </Bloom>
+               </effect>
+            </ProgressIndicator>
+            <HBox fx:id="hbox" layoutY="41.0" prefHeight="100.0" prefWidth="823.0" spacing="15.0" style="-fx-background-color: #2D75E8;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+               <children>
+                  <JFXButton contentDisplay="TOP" onAction="#handleStatementOneDay" prefHeight="68.0" prefWidth="91.0" style="-fx-border-color: white; -fx-font-size: 14;" text="Часа" textFill="WHITE">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <graphic>
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 24;" text="24" />
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton contentDisplay="TOP" onAction="#handleStatementSevenDay" prefHeight="69.0" prefWidth="91.0" style="-fx-border-color: white; -fx-font-size: 14;" text="Дней" textFill="WHITE">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <graphic>
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 24;" text="7" />
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton contentDisplay="TOP" onAction="#handleStatementThirtyDay" prefHeight="51.0" prefWidth="96.0" style="-fx-border-color: white; -fx-font-size: 14;" text="Дней" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <graphic>
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 24;" text="30" />
+                     </graphic>
+                  </JFXButton>
+                  <VBox prefHeight="51.0" prefWidth="189.0">
+                     <children>
+                        <ComboBox fx:id="cmb_group" prefHeight="30.0" prefWidth="186.0" promptText="Группа" style="-fx-background-color: white; -fx-background-radius: 20px; -fx-border-radius: 20px; -fx-font-size: 14px;" />
+                        <Separator orientation="VERTICAL" prefHeight="10.0" prefWidth="0.0" scaleX="0.0" style="-fx-background-color: white;" />
+                        <ComboBox fx:id="cmb_subject" prefHeight="30.0" prefWidth="186.0" promptText="Предмет" style="-fx-background-color: white; -fx-background-radius: 20px; -fx-border-radius: 20px; -fx-font-size: 14px;" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="100.0" prefWidth="135.0">
+                     <children>
+                        <JFXDatePicker fx:id="dp_From" defaultColor="#2d75e8" overLay="true" prefHeight="30.0" prefWidth="133.0" promptText="От" style="-fx-font-size: 14; -fx-background-color: white;">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </JFXDatePicker>
+                        <Separator orientation="VERTICAL" prefHeight="10.0" prefWidth="0.0" scaleX="0.0" style="-fx-background-color: white;" />
+                        <JFXDatePicker fx:id="dp_To" defaultColor="WHITE" overLay="true" prefHeight="30.0" prefWidth="132.0" promptText="До" style="-fx-font-size: 14; -jfx-default-color: #2D75E8; -fx-background-color: white;">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </JFXDatePicker>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="72.0" prefWidth="189.0">
+                     <children>
+                        <ComboBox fx:id="cmb_typeСertification" prefHeight="30.0" prefWidth="189.0" promptText="Тип аттестации" style="-fx-background-color: white; -fx-background-radius: 20px; -fx-border-radius: 20px; -fx-font-size: 14px;" />
+                        <Separator orientation="VERTICAL" prefHeight="10.0" prefWidth="0.0" scaleX="0.0" style="-fx-background-color: white;" />
+                        <JFXButton alignment="CENTER" contentDisplay="CENTER" onAction="#handleSearch" prefHeight="32.0" prefWidth="189.0" styleClass="autoGenerationButton" text="Поиск" textFill="WHITE">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </JFXButton>
+                     </children>
+                  </VBox>
+               </children>
+               <padding>
+                  <Insets left="25.0" />
+               </padding>
+            </HBox>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>

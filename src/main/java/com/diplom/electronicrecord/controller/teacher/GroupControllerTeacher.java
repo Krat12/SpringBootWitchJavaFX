@@ -7,6 +7,7 @@ import com.diplom.electronicrecord.model.Group;
 import com.diplom.electronicrecord.model.Student;
 import com.diplom.electronicrecord.service.GroupService;
 import com.diplom.electronicrecord.util.AlertMaker;
+import com.diplom.electronicrecord.view.FxmlViewManagerWindowObject;
 import com.diplom.electronicrecord.view.admin.FxmlViewReport;
 import com.diplom.electronicrecord.view.teacher.FxmlViewGroupTeacher;
 import com.diplom.electronicrecord.view.teacher.FxmlViewMarkTeacher;
@@ -18,6 +19,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -43,9 +45,6 @@ public class GroupControllerTeacher implements Initializable {
     private StackPane rootPane;
 
     @FXML
-    private JFXDrawer drawer;
-
-    @FXML
     private AnchorPane contentPane;
 
     @FXML
@@ -59,9 +58,6 @@ public class GroupControllerTeacher implements Initializable {
 
     @FXML
     private TableColumn<Group, Long> id;
-
-    @FXML
-    private JFXHamburger hamburger;
 
     @FXML
     private TextField txt_search;
@@ -80,6 +76,8 @@ public class GroupControllerTeacher implements Initializable {
 
     private final FxmlViewMarkTeacher fxmlViewMarkTeacher;
 
+    private final FxmlViewManagerWindowObject windowObject;
+
 
     @Autowired
     public GroupControllerTeacher(GroupService groupService, SpringFXMLLoader springFXMLLoader,
@@ -87,7 +85,8 @@ public class GroupControllerTeacher implements Initializable {
                                   StudentControllerTeacher studentController,
                                   @Qualifier("Statement") FxmlViewReport fxmlViewReport,
                                   FxmlViewSubjectTeacher fxmlViewSubjectTeacher,
-                                  @Qualifier("EditMark") FxmlViewMarkTeacher fxmlViewMarkTeacher) {
+                                  @Qualifier("EditMark") FxmlViewMarkTeacher fxmlViewMarkTeacher,
+                                  @Qualifier("Login") FxmlViewManagerWindowObject windowObject) {
         this.groupService = groupService;
         this.springFXMLLoader = springFXMLLoader;
         this.student = student;
@@ -96,6 +95,7 @@ public class GroupControllerTeacher implements Initializable {
         this.fxmlViewReport = fxmlViewReport;
         this.fxmlViewSubjectTeacher = fxmlViewSubjectTeacher;
         this.fxmlViewMarkTeacher = fxmlViewMarkTeacher;
+        this.windowObject = windowObject;
     }
 
     @FXML
@@ -181,6 +181,15 @@ public class GroupControllerTeacher implements Initializable {
             listGroups.addAll(groupService.findGroupByTeacherIdAndStartingWith(LoginController.getUserId(),newValue));
             tableView.setItems(listGroups);
         });
+    }
+
+
+    @FXML
+    void handleExit(ActionEvent event) {
+        Node node = (Node) event.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
+        StageManager stageManager = new StageManager(springFXMLLoader,stage);
+        stageManager.switchScene(windowObject);
     }
 
 }

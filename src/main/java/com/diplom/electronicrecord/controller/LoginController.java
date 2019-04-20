@@ -11,12 +11,15 @@ import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Controller;
+
 
 @Controller
 public class LoginController {
@@ -57,6 +60,17 @@ public class LoginController {
 
     @FXML
     void input(ActionEvent event) {
+        login();
+    }
+
+    @FXML
+    void LoginEnter(KeyEvent event) {
+        if(event.getCode().getName().equals(KeyCode.ENTER.getName())){
+            login();
+        }
+    }
+
+    private void login(){
         try {
             User user = userService.authenticate(txt_login.getText(), txt_password.getText());
 
@@ -74,7 +88,6 @@ public class LoginController {
         } catch (NullPointerException e) {
             userNotFound();
         }
-
     }
 
     private void userNotFound() {

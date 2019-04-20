@@ -4,7 +4,9 @@ import com.diplom.electronicrecord.model.*;
 import com.diplom.electronicrecord.service.MarkService;
 import com.diplom.electronicrecord.service.StatementService;
 import com.diplom.electronicrecord.service.TeacherService;
+import com.diplom.electronicrecord.util.AlertMaker;
 import com.jfoenix.controls.JFXToggleButton;
+import impl.com.calendarfx.view.NumericTextField;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleDoubleProperty;
@@ -21,8 +23,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import java.net.URL;
-import java.util.List;
-import java.util.ResourceBundle;
+import java.util.*;
 
 @Controller
 public class ReportStatisticController implements Initializable {
@@ -73,17 +74,22 @@ public class ReportStatisticController implements Initializable {
     @FXML
     private TableColumn<StatisticReportModel, Double> col_avg;
 
+    @FXML
+    private NumericTextField txt_year;
+
     private final TeacherService teacherService;
 
     private StatementService statementService;
 
-    private Integer countExellent;
+    private Integer countExcellent = 0;
 
-    private Integer countGood;
+    private Integer countGood = 0;
 
-    private Integer countAcceptable;
+    private Integer countAcceptable = 0;
 
-    private Integer countAllStudents;
+    private Integer countAllStudents = 0;
+
+    private Double average = 0.0;
 
     private MarkService markService;
 
@@ -101,12 +107,60 @@ public class ReportStatisticController implements Initializable {
 
     @FXML
     void handleGenerateReport(ActionEvent event) {
+        Teacher teacher = tb_teacher.getSelectionModel().getSelectedItem();
+        if (checkSelectTeacher(teacher)) {
+            if (checkSelectSemester()) {
+                reportFirstSemester(teacher);
+                reportSecondSemester(teacher);
+            }
+        }
+    }
 
+    private boolean checkSelectSemester() {
+        if (!tab_firstSemesterST.isSelected() && !tab_secondSemesterST.isSelected()) {
+            AlertMaker.showErrorMessage("Семестр не выбран", "Пожалуйста, выберите семестр");
+            return false;
+        } else {
+            return true;
+        }
     }
 
     @FXML
     void handleSecondSemester(ActionEvent event) {
         tab_firstSemesterST.setSelected(false);
+    }
+
+
+    private void reportFirstSemester(Teacher teacher) {
+
+        if (tab_firstSemesterST.isSelected()) {
+
+            if (txt_year.getText().trim().isEmpty()) {
+                Calendar start = new GregorianCalendar(getCurrentYearFirstSemester(),Calendar.SEPTEMBER,1);
+                Calendar end = new GregorianCalendar(getCurrentYearFirstSemester()+1,Calendar.JANUARY,1);
+                loadDataReportInTable(teacher.getId(),start.getTime(),end.getTime());
+            } else {
+                Calendar start = new GregorianCalendar(Integer.valueOf(txt_year.getText()),Calendar.SEPTEMBER,1);
+                Calendar end = new GregorianCalendar(Integer.valueOf(txt_year.getText())+1,Calendar.JANUARY,1);
+                loadDataReportInTable(teacher.getId(),start.getTime(),end.getTime());
+            }
+        }
+    }
+
+    private void reportSecondSemester(Teacher teacher) {
+
+        if (tab_secondSemesterST.isSelected()) {
+
+            if (txt_year.getText().trim().isEmpty()) {
+                Calendar start = new GregorianCalendar(getCurrentYearSecondSemester(),Calendar.JANUARY,1);
+                Calendar end = new GregorianCalendar(getCurrentYearSecondSemester(),Calendar.AUGUST,31);
+                loadDataReportInTable(teacher.getId(),start.getTime(),end.getTime());
+            } else {
+                Calendar start = new GregorianCalendar(Integer.valueOf(txt_year.getText()),Calendar.JANUARY, 1);
+                Calendar end = new GregorianCalendar(Integer.valueOf(txt_year.getText()),Calendar.AUGUST,31);
+                loadDataReportInTable(teacher.getId(),start.getTime(),end.getTime());
+            }
+        }
     }
 
 
@@ -130,44 +184,103 @@ public class ReportStatisticController implements Initializable {
 
     }
 
-    private void loadDataTeacherInTable(){
+    private void loadDataTeacherInTable() {
         teachers.clear();
         teachers.addAll(teacherService.findAll());
         tb_teacher.setItems(teachers);
     }
 
-    private void loadDataReportInTable(Long teacherId){
-        for (Statement statement : statementService.findStatementByTeacherId(teacherId)) {
+    private void loadDataReportInTable(Long teacherId,Date start, Date end) {
+        reportModels.clear();
+        for (Statement statement : statementService.findStatementByTeacherId(teacherId,start,end)) {
             StatisticReportModel statisticReportModel = new StatisticReportModel();
             statisticReportModel.setSubject(statement.getSubject());
             statisticReportModel.setGroup(statement.getGroup());
             findMarkByStatementId(statement.getId());
+            statisticReportModel.setAcceptable(countAcceptable);
+            statisticReportModel.setGood(countGood);
+            statisticReportModel.setExcellent(countExcellent);
+            statisticReportModel.setAllStudent(countAllStudents);
+            statisticReportModel.setLoser(getLoserStudent());
+            statisticReportModel.setAdvance(getAdvance());
+            statisticReportModel.setAvg(average);
+            reportModels.add(statisticReportModel);
+            resetField();
         }
+        tb_date.setItems(reportModels);
     }
 
-    private void findMarkByStatementId(Long id){
-        int number = 1;
-        for (Marks marks: markService.findMarksByStatementId(id)) {
+    private void findMarkByStatementId(Long id) {
+        int number = 0;
+        List<Marks> marksList = markService.findMarksByStatementId(id);
+        for (Marks marks : marksList) {
 
-            if(marks.getMark() == 5){
-                countExellent++;
+            if (marks.getMark() == 5) {
+                countExcellent++;
             }
-            if(marks.getMark() == 4){
+            if (marks.getMark() == 4) {
                 countGood++;
             }
 
-            if(marks.getMark() == 3){
+            if (marks.getMark() == 3) {
                 countAcceptable++;
             }
             number++;
         }
         countAllStudents = number;
+        average = markService.getAverage(marksList);
     }
 
+    private Integer getLoserStudent() {
+        return countAllStudents - countExcellent - countGood - countAcceptable;
+    }
 
+    private Integer getAdvance() {
+        return countExcellent + countGood + countAcceptable;
+    }
 
+    private void resetField(){
+        countAcceptable = 0;
+        countGood = 0;
+        countExcellent = 0;
+        countAllStudents = 0;
+        average = 0.0;
+    }
 
-    private class StatisticReportModel{
+    private Boolean checkSelectTeacher(Teacher teacher) {
+        if (teacher != null) {
+            return true;
+        } else {
+            AlertMaker.showErrorMessage("Преподаватель не выбран",
+                    "Пожалуйста, выберите Преподавателя");
+            return false;
+        }
+    }
+
+    private int getCurrentYearFirstSemester(){
+        Calendar calendar =Calendar.getInstance(TimeZone.getDefault(), Locale.getDefault());
+        calendar.setTime(new Date());
+
+        if(calendar.get(Calendar.MONTH) >= 8 && calendar.get(Calendar.MONTH) <= 11){
+           return  calendar.get(Calendar.YEAR);
+        }else {
+            calendar.add(Calendar.YEAR,-1);
+           return calendar.get(Calendar.YEAR);
+        }
+    }
+    private int getCurrentYearSecondSemester(){
+        Calendar calendar =Calendar.getInstance(TimeZone.getDefault(), Locale.getDefault());
+        calendar.setTime(new Date());
+
+        if(calendar.get(Calendar.MONTH) >= 0 && calendar.get(Calendar.MONTH) <= 7){
+            return calendar.get(Calendar.YEAR);
+        }else {
+            calendar.add(Calendar.YEAR,1);
+            return calendar.get(Calendar.YEAR);
+        }
+    }
+
+    public class StatisticReportModel {
 
         private Subject subject;
 
@@ -207,7 +320,7 @@ public class ReportStatisticController implements Initializable {
             return allStudent.getValue();
         }
 
-        public void setAllStudent(Integer allStudent) {
+        void setAllStudent(Integer allStudent) {
             this.allStudent = new SimpleIntegerProperty(allStudent);
         }
 
@@ -215,7 +328,7 @@ public class ReportStatisticController implements Initializable {
             return excellent.getValue();
         }
 
-        public void setExcellent(Integer excellent) {
+        void setExcellent(Integer excellent) {
             this.excellent = new SimpleIntegerProperty(excellent);
         }
 
@@ -223,7 +336,7 @@ public class ReportStatisticController implements Initializable {
             return good.getValue();
         }
 
-        public void setGood(Integer good) {
+        void setGood(Integer good) {
             this.good = new SimpleIntegerProperty(good);
         }
 
@@ -231,7 +344,7 @@ public class ReportStatisticController implements Initializable {
             return acceptable.getValue();
         }
 
-        public void setAcceptable(Integer acceptable) {
+        void setAcceptable(Integer acceptable) {
             this.acceptable = new SimpleIntegerProperty(acceptable);
         }
 
@@ -239,7 +352,7 @@ public class ReportStatisticController implements Initializable {
             return loser.getValue();
         }
 
-        public void setLoser(Integer loser) {
+        void setLoser(Integer loser) {
             this.loser = new SimpleIntegerProperty(loser);
         }
 
@@ -247,7 +360,7 @@ public class ReportStatisticController implements Initializable {
             return advance.getValue();
         }
 
-        public void setAdvance(Integer advance) {
+        void setAdvance(Integer advance) {
             this.advance = new SimpleIntegerProperty(advance);
         }
 
@@ -255,7 +368,7 @@ public class ReportStatisticController implements Initializable {
             return avg.getValue();
         }
 
-        public void setAvg(Double avg) {
+        void setAvg(Double avg) {
             this.avg = new SimpleDoubleProperty(avg);
         }
     }

@@ -15,5 +15,5 @@ public interface StatementService {
 
     Statement save(Statement statement);
 
-    List<Statement> findStatementByTeacherId(Long teacherId);
+    List<Statement> findStatementByTeacherId(Long teacherId,Date start,Date end);
 }

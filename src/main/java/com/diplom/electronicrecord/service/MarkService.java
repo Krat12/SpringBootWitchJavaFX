@@ -34,5 +34,6 @@ public interface MarkService {
     Marks update(Marks marks);
 
     List<Marks> findMarksByStudentId(Long studentId, Long teacherId);
-    
+
+    Double getAverage(List<Marks> marksList);
 }

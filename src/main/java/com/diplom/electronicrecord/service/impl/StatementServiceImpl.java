@@ -30,7 +30,7 @@ public class StatementServiceImpl implements StatementService {
     }
 
     @Override
-    public List<Statement> findStatementByTeacherId(Long teacherId) {
-        return statementRepository.findStatementByTeacherId(teacherId);
+    public List<Statement> findStatementByTeacherId(Long teacherId,Date start,Date end) {
+        return statementRepository.findStatementByTeacherId(teacherId,start,end);
     }
 }

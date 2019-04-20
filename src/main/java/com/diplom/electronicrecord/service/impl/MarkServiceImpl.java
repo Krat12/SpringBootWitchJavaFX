@@ -9,8 +9,10 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
+import java.util.stream.IntStream;
 
 @Service
 public class MarkServiceImpl implements MarkService {
@@ -223,5 +225,20 @@ public class MarkServiceImpl implements MarkService {
     @Override
     public List<Marks> findMarksByStudentId(Long studentId, Long teacherId) {
         return markRepository.findMarksByStudentId(studentId,teacherId);
+    }
+
+    @Override
+    public Double getAverage(List<Marks> marksList) {
+
+        double sum = 0.0;
+
+        for (Marks marks :marksList) {
+
+            if(marks.getMark() >= 1) {
+
+                sum += marks.getMark();
+            }
+        }
+        return sum/marksList.size();
     }
 }

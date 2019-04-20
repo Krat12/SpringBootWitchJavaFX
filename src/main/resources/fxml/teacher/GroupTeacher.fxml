@@ -2,7 +2,6 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXDrawer?>
-<?import com.jfoenix.controls.JFXHamburger?>
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
@@ -16,10 +15,10 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<StackPane fx:id="rootPane" prefHeight="743.0" prefWidth="614.0" stylesheets="@../../styles/theme.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.diplom.electronicrecord.controller.teacher.GroupControllerTeacher">
+<StackPane fx:id="rootPane" prefHeight="743.0" prefWidth="717.0" stylesheets="@../../styles/theme.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.diplom.electronicrecord.controller.teacher.GroupControllerTeacher">
    <children>
-      <JFXDrawer fx:id="drawer" defaultDrawerSize="150.0" prefHeight="625.0" prefWidth="1031.0" resizableOnDrag="true" resizeContent="true" styleClass="jfx-drawer" />
-      <AnchorPane id="AnchorPane" fx:id="contentPane" prefHeight="743.0" prefWidth="553.0" style="-fx-background-color: #2D75E8;">
+      <JFXDrawer defaultDrawerSize="150.0" prefHeight="625.0" prefWidth="1031.0" resizableOnDrag="true" resizeContent="true" styleClass="jfx-drawer" />
+      <AnchorPane id="AnchorPane" fx:id="contentPane" prefHeight="743.0" prefWidth="741.0" style="-fx-background-color: #2D75E8;">
          <children>
             <AnchorPane layoutX="-1.0" layoutY="178.0" prefHeight="567.0" prefWidth="585.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-1.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="178.0">
                <children>
@@ -35,11 +34,6 @@
                   </TableView>
                </children>
             </AnchorPane>
-            <JFXHamburger fx:id="hamburger" alignment="CENTER" layoutX="466.0" layoutY="114.0" prefHeight="37.0" prefWidth="51.0" style="-fx-spacing: 5;" styleClass="jfx-hamburger-icon" stylesheets="@../../styles/theme.css" AnchorPane.rightAnchor="1.0">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </JFXHamburger>
             <HBox layoutX="2.0" layoutY="93.0" prefHeight="77.0" prefWidth="496.0" style="-fx-background-color: #2D75E8;" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="52.0">
                <children>
                   <TextField fx:id="txt_search" prefHeight="37.0" prefWidth="341.0" promptText="Поиск" style="-fx-background-radius: 20px; -fx-border-color: transparent;">
@@ -105,6 +99,15 @@
                   <JFXButton contentDisplay="TOP" onAction="#handleOpenProfile" prefHeight="65.0" prefWidth="86.0" style="-fx-border-color: white;" styleClass="toolBarButton" text="Профиль" textFill="WHITE">
                      <graphic>
                         <FontAwesomeIconView glyphName="USER" size="30" strokeLineJoin="ROUND" style="-fx-fill: white;" />
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </JFXButton>
+                  <Separator orientation="VERTICAL" prefHeight="10.0" prefWidth="0.0" scaleX="0.0" style="-fx-background-color: white;" />
+                  <JFXButton contentDisplay="TOP" onAction="#handleExit" prefHeight="65.0" prefWidth="86.0" style="-fx-border-color: white;" styleClass="toolBarButton" text="Выход" textFill="WHITE">
+                     <graphic>
+                        <FontAwesomeIconView glyphName="POWER_OFF" size="30" strokeLineJoin="ROUND" style="-fx-fill: white;" />
                      </graphic>
                      <cursor>
                         <Cursor fx:constant="HAND" />

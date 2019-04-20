@@ -55,7 +55,7 @@
             </SplitPane>
             <HBox layoutY="10.0" prefHeight="45.0" prefWidth="880.0" spacing="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="53.0">
                <children>
-                  <NumericTextField prefHeight="33.0" prefWidth="92.0" promptText="Год отчета" style="-fx-background-radius: 20px; -fx-border-color: transparent;">
+                  <NumericTextField fx:id="txt_year" prefHeight="33.0" prefWidth="92.0" promptText="Год отчета" style="-fx-background-radius: 20px; -fx-border-color: transparent;">
                      <font>
                         <Font size="14.0" />
                      </font>

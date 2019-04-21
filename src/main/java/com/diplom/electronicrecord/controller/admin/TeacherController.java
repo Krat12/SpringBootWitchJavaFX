@@ -278,7 +278,7 @@ public class TeacherController implements Initializable {
         Teacher teacher = tableView.getSelectionModel().getSelectedItem();
         if (teacher == null) {
             AlertMaker.showMaterialDialog(rootPane, contentPane,
-                    "Преподаватель не выбран!", "Пожалуйста, выберите Преподавателя");
+                    "Преподаватель не выбран!", "Пожалуйста, выберите преподавателя");
             return;
         }
         Alert alert = new Alert(CONFIRMATION);
@@ -302,7 +302,7 @@ public class TeacherController implements Initializable {
                 teacherId = null;
                 handleRefresh(new ActionEvent());
             } catch (ValidationException | AlreadyExistException e) {
-                AlertMaker.showMaterialDialog(rootPane, contentPane, "Ошибка при Изменении", e.getMessage());
+                AlertMaker.showMaterialDialog(rootPane, contentPane, "Ошибка при изменении", e.getMessage());
             }
         }
     }

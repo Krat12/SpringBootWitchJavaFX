@@ -222,7 +222,7 @@ public class SpecialityController implements Initializable {
         Speciality speciality = tableView.getSelectionModel().getSelectedItem();
         if (speciality == null) {
             AlertMaker.showMaterialDialog(rootPane, contentPane, "Специальность не выбрана!",
-                    "Пожалуйста, выберите Специальность");
+                    "Пожалуйста, выберите специальность");
             return;
         }
 

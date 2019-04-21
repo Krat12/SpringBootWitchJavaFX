@@ -234,7 +234,7 @@ public class MarkServiceImpl implements MarkService {
 
         for (Marks marks :marksList) {
 
-            if(marks.getMark() >= 1) {
+            if(marks.getMark() >= 2) {
 
                 sum += marks.getMark();
             }

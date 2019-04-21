@@ -35,7 +35,7 @@
               <columns>
                   <TableColumn fx:id="col_group" editable="true" maxWidth="3000.0" prefWidth="157.0" styleClass="table-columnSubject" text="Группа" />
                   <TableColumn fx:id="colSubject" prefWidth="219.0" text="Предмет" />
-                  <TableColumn fx:id="colTeacher" prefWidth="148.0" text="Преподователь" />
+                  <TableColumn fx:id="colTeacher" prefWidth="148.0" text="Преподаватель" />
                   <TableColumn fx:id="colType" prefWidth="242.0" text="Тип" />
                   <TableColumn fx:id="colHours" maxWidth="2000.0" prefWidth="174.0" text="Часы" />
                   <TableColumn fx:id="colDate" prefWidth="138.0" text="Дата" />

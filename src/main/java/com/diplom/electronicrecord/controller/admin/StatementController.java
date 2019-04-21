@@ -279,15 +279,27 @@ public class StatementController implements Initializable {
     }
 
     private void loadGroupComboBox() {
-        listGroups.clear();
-        listGroups.addAll(groupService.findAll());
-        cmb_group.setItems(listGroups);
+        if(LoginController.getUserType().equals("Admin")) {
+            listGroups.clear();
+            listGroups.addAll(groupService.findAll());
+            cmb_group.setItems(listGroups);
+        }else {
+            listGroups.clear();
+            listGroups.addAll(groupService.findGroupByTeacherId(LoginController.getUserId()));
+            cmb_group.setItems(listGroups);
+        }
     }
 
     private void loadSubject() {
-        listSubjects.clear();
-        listSubjects.addAll(subjectService.findAll());
-        cmb_subject.setItems(listSubjects);
+        if(LoginController.getUserType().equals("Admin")) {
+            listSubjects.clear();
+            listSubjects.addAll(subjectService.findAll());
+            cmb_subject.setItems(listSubjects);
+        }else {
+            listSubjects.clear();
+            listSubjects.addAll(subjectService.findSubjectsByTeacherId(LoginController.getUserId()));
+            cmb_subject.setItems(listSubjects);
+        }
     }
 
 

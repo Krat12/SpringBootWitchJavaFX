@@ -12,7 +12,7 @@ public class FxmlViewHomeImpl implements FxmlViewMain {
 
     @Override
     public String getTitle() {
-        return "Главное окно";
+        return "Главное меню";
     }
 
     @Override

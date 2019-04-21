@@ -173,17 +173,17 @@ public class CreateStudentController implements Initializable {
 
     private void mappingUI() {
 
-        if (studentForUpdate != null) {
+       if(isInEditMode) {
+           txt_name.setText(studentForUpdate.getName());
+           txt_surname.setText(studentForUpdate.getSurname());
+           txt_patronymic.setText(studentForUpdate.getPatronymic());
+           txt_login.setText(studentForUpdate.getLogin());
+           txt_password.setText(studentForUpdate.getPassword());
+           txt_numberRecord.setText(String.valueOf(studentForUpdate.getNumberBook()));
+           groupComboBox.setVisible(true);
+           groupComboBox.getSelectionModel().select(studentForUpdate.getGroup());
+       }
 
-            txt_name.setText(studentForUpdate.getName());
-            txt_surname.setText(studentForUpdate.getSurname());
-            txt_patronymic.setText(studentForUpdate.getPatronymic());
-            txt_login.setText(studentForUpdate.getLogin());
-            txt_password.setText(studentForUpdate.getPassword());
-            txt_numberRecord.setText(String.valueOf(studentForUpdate.getNumberBook()));
-            groupComboBox.setVisible(true);
-            groupComboBox.getSelectionModel().select(studentForUpdate.getGroup());
-        }
     }
 
     private String generateLogin() {

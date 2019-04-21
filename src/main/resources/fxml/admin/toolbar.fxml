@@ -11,7 +11,7 @@
 
 <VBox prefHeight="445.0" prefWidth="154.0" style="-fx-background-color: #FFFF;" stylesheets="@../../styles/theme.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.diplom.electronicrecord.controller.admin.ToolBarController">
    <children>
-      <JFXButton contentDisplay="TOP" mnemonicParsing="false" onAction="#ShowListStudent" prefHeight="400.0" prefWidth="160.0" styleClass="toolBarButton" text="Список студентов" textAlignment="CENTER">
+      <JFXButton contentDisplay="TOP" mnemonicParsing="false" onAction="#ShowGroup" prefHeight="400.0" prefWidth="160.0" style="-fx-font-size: 14;" styleClass="toolBarButton" text="Группы" textAlignment="CENTER">
          <graphic>
             <ImageView fitHeight="31.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -31,14 +31,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <JFXButton contentDisplay="TOP" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#loadStudentList" prefHeight="400.0" prefWidth="160.0" styleClass="toolBarButton" text="Добавть студентов" textAlignment="CENTER">
-         <graphic>
-            <ImageView fitHeight="31.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../image/icons8_Insert_Table_50px_3.png" />
-               </image>
-            </ImageView>
-         </graphic>
+      <JFXButton contentDisplay="TOP" layoutX="10.0" layoutY="81.0" mnemonicParsing="false" onAction="#ShowStatistic" prefHeight="400.0" prefWidth="160.0" style="-fx-font-size: 14;" styleClass="toolBarButton" text="Статистика" textAlignment="CENTER">
          <ripplerFill>
             <LinearGradient cycleMethod="REFLECT" endX="1.0" endY="1.0" startX="0.4809523809523809">
                <stops>
@@ -50,15 +43,11 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
-      </JFXButton>
-      <JFXButton contentDisplay="TOP" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#loadAddGroup" prefHeight="400.0" prefWidth="160.0" styleClass="toolBarButton" text="Добавить группу" textAlignment="CENTER">
          <graphic>
-            <ImageView fitHeight="31.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../image/icons8_Add_New_104px_1.png" />
-               </image>
-            </ImageView>
+            <FontAwesomeIconView fill="#2d75e8" glyphName="PIE_CHART" size="30" style="-fx-fill: #2d75e8;" />
          </graphic>
+      </JFXButton>
+      <JFXButton contentDisplay="TOP" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#showSubject" prefHeight="400.0" prefWidth="160.0" style="-fx-font-size: 14;" styleClass="toolBarButton" text="Предметы" textAlignment="CENTER">
          <ripplerFill>
             <LinearGradient cycleMethod="REFLECT" endX="1.0" endY="1.0" startX="0.4809523809523809">
                <stops>
@@ -70,15 +59,11 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
-      </JFXButton>
-      <JFXButton contentDisplay="TOP" layoutX="10.0" layoutY="81.0" mnemonicParsing="false" onAction="#loadListGroup" prefHeight="400.0" prefWidth="160.0" styleClass="toolBarButton" text="Добавить список групп" textAlignment="CENTER">
          <graphic>
-            <ImageView fitHeight="31.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../image/icons8_User_Groups_104px_1.png" />
-               </image>
-            </ImageView>
+            <FontAwesomeIconView fill="#2d75e8" glyphName="BOOK" size="30" style="-fx-fill: #2d75e8;" wrappingWidth="32.14285659790039" />
          </graphic>
+      </JFXButton>
+      <JFXButton contentDisplay="TOP" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#ShowSpeciality" prefHeight="400.0" prefWidth="160.0" style="-fx-font-size: 14;" styleClass="toolBarButton" text=" Спецальности" textAlignment="CENTER">
          <ripplerFill>
             <LinearGradient cycleMethod="REFLECT" endX="1.0" endY="1.0" startX="0.4809523809523809">
                <stops>
@@ -90,8 +75,11 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
+         <graphic>
+            <FontAwesomeIconView fill="#2d75e8" glyphName="GRADUATION_CAP" size="30" style="-fx-fill: #2d75e8;" />
+         </graphic>
       </JFXButton>
-      <JFXButton contentDisplay="TOP" mnemonicParsing="false" onAction="#handleListStudents" prefHeight="400.0" prefWidth="160.0" styleClass="toolBarButton" text="Список студентов" textAlignment="CENTER">
+      <JFXButton contentDisplay="TOP" mnemonicParsing="false" onAction="#ShowTeacher" prefHeight="400.0" prefWidth="160.0" style="-fx-font-size: 14;" styleClass="toolBarButton" text=" Преподаватели" textAlignment="CENTER">
          <ripplerFill>
             <LinearGradient cycleMethod="REFLECT" endX="1.0" endY="1.0" startX="0.4809523809523809">
                <stops>
@@ -107,7 +95,7 @@
             <FontAwesomeIconView fill="#2d75e8" glyphName="GROUP" size="30" style="-fx-fill: #2d75e8;" />
          </graphic>
       </JFXButton>
-      <JFXButton contentDisplay="TOP" layoutX="10.0" layoutY="223.0" mnemonicParsing="false" onAction="#closeGroup" prefHeight="400.0" prefWidth="160.0" styleClass="toolBarButton" text="Выйти" textAlignment="CENTER">
+      <JFXButton contentDisplay="TOP" layoutX="10.0" layoutY="223.0" mnemonicParsing="false" onAction="#ShowMain" prefHeight="400.0" prefWidth="160.0" style="-fx-font-size: 14;" styleClass="toolBarButton" text="Выйти" textAlignment="CENTER">
          <graphic>
             <ImageView fitHeight="31.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
                <image>

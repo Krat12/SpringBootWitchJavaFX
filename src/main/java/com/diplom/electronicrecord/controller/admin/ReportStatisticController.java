@@ -7,10 +7,7 @@ import com.diplom.electronicrecord.service.TeacherService;
 import com.diplom.electronicrecord.util.AlertMaker;
 import com.jfoenix.controls.JFXToggleButton;
 import impl.com.calendarfx.view.NumericTextField;
-import javafx.beans.property.DoubleProperty;
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.SimpleDoubleProperty;
-import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -23,6 +20,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import java.net.URL;
+import java.text.DecimalFormat;
 import java.util.*;
 
 @Controller
@@ -203,7 +201,8 @@ public class ReportStatisticController implements Initializable {
             statisticReportModel.setAllStudent(countAllStudents);
             statisticReportModel.setLoser(getLoserStudent());
             statisticReportModel.setAdvance(getAdvance());
-            statisticReportModel.setAvg(average);
+            DecimalFormat format = new DecimalFormat("#.00");
+            statisticReportModel.setAvg(format.format(average));
             reportModels.add(statisticReportModel);
             resetField();
         }
@@ -252,7 +251,7 @@ public class ReportStatisticController implements Initializable {
             return true;
         } else {
             AlertMaker.showErrorMessage("Преподаватель не выбран",
-                    "Пожалуйста, выберите Преподавателя");
+                    "Пожалуйста, выберите преподавателя");
             return false;
         }
     }
@@ -298,7 +297,7 @@ public class ReportStatisticController implements Initializable {
 
         private IntegerProperty advance;
 
-        private DoubleProperty avg;
+        private StringProperty avg;
 
         public Subject getSubject() {
             return subject;
@@ -364,12 +363,12 @@ public class ReportStatisticController implements Initializable {
             this.advance = new SimpleIntegerProperty(advance);
         }
 
-        public Double getAvg() {
+        public String getAvg() {
             return avg.getValue();
         }
 
-        void setAvg(Double avg) {
-            this.avg = new SimpleDoubleProperty(avg);
+        void setAvg(String avg) {
+            this.avg = new SimpleStringProperty(avg);
         }
     }
 }

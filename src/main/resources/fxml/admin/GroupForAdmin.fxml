@@ -33,24 +33,24 @@
             <AnchorPane layoutX="-1.0" layoutY="178.0" prefHeight="567.0" prefWidth="585.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-1.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="178.0">
                <children>
                   <TableView fx:id="tableView" onMouseClicked="#SelectGroup" prefHeight="292.0" prefWidth="574.0" stylesheets="@../../styles/table.css" AnchorPane.bottomAnchor="-6.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                    <columns>
+                     <columns>
                         <TableColumn fx:id="groupCol" prefWidth="271.3411865234375" text="Группа" />
                         <TableColumn fx:id="yearCol" prefWidth="204.2645263671875" text="Год создания" />
                         <TableColumn fx:id="id" maxWidth="2800.0" prefWidth="75.0" text="Id" visible="false" />
-                    </columns>
+                     </columns>
                      <columnResizePolicy>
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                      </columnResizePolicy>
                      <contextMenu>
                         <ContextMenu style="-fx-base: #0e67f7;" styleClass="table-context">
-                          <items>
+                           <items>
                               <MenuItem mnemonicParsing="false" onAction="#handleRefresh" text="Обновить" />
-                            <MenuItem fx:id="con_edit" mnemonicParsing="false" onAction="#handleGroupEditOption" text="Изменить" />
+                              <MenuItem fx:id="con_edit" mnemonicParsing="false" onAction="#handleGroupEditOption" text="Изменить" />
                               <MenuItem fx:id="con_deleteGroup" mnemonicParsing="false" onAction="#handleGroupDeleteOption" text="Удалить" />
                               <MenuItem fx:id="con_addGroup" mnemonicParsing="false" onAction="#handleGroupAdd" text="Добавить" />
                               <MenuItem mnemonicParsing="false" onAction="#handleStudentList" text="Список студентов" />
                               <MenuItem mnemonicParsing="false" onAction="#handleSubjectList" text="Список предметов" />
-                          </items>
+                           </items>
                         </ContextMenu>
                      </contextMenu>
                   </TableView>

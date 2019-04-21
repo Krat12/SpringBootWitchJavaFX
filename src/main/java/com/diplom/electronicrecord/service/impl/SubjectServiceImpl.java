@@ -59,7 +59,7 @@ public class SubjectServiceImpl implements SubjectService {
     private void validateInputDataTeacher(Subject subject) {
 
         if (!ValidationUtil.checkInputDataEntity(subject)) {
-            throw new ValidationException("Данные не прошли провекру");
+            throw new ValidationException("Данные не прошли проверку");
         }
     }
 
@@ -126,5 +126,10 @@ public class SubjectServiceImpl implements SubjectService {
     @Override
     public List<Subject> findSubjectsByGroupAndTeacher(Long groupId, Long teacherId) {
         return subjectRepository.findSubjectsByGroupAndTeacher(groupId,teacherId);
+    }
+
+    @Override
+    public List<Subject> findSubjectsByTeacherId(Long teacherId) {
+        return subjectRepository.findSubjectsByTeacherId(teacherId);
     }
 }

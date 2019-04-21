@@ -337,7 +337,7 @@ public class StudentStatisticController implements Initializable {
 
         ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList();
         if (markService.getCountHonours() != 0) {
-            PieChart.Data excellent = new PieChart.Data("Отлчники", markService.getCountHonours());
+            PieChart.Data excellent = new PieChart.Data("Отличники", markService.getCountHonours());
             pieChartData.add(excellent);
         }
         if (markService.getCountGoodStudents() != 0) {
@@ -346,12 +346,12 @@ public class StudentStatisticController implements Initializable {
         }
 
         if (markService.getCountAcceptable() != 0) {
-            PieChart.Data soSo = new PieChart.Data("Троешники", markService.getCountAcceptable());
+            PieChart.Data soSo = new PieChart.Data("Троечники", markService.getCountAcceptable());
             pieChartData.add(soSo);
         }
 
         if (markService.getCountBadStudents() != 0) {
-            PieChart.Data bad = new PieChart.Data("Двоешники", markService.getCountBadStudents());
+            PieChart.Data bad = new PieChart.Data("Двоечники", markService.getCountBadStudents());
             pieChartData.add(bad);
         }
 

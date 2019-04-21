@@ -23,17 +23,17 @@
          <children>
             <HBox layoutX="14.0" layoutY="83.0" prefHeight="35.0" prefWidth="880.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="39.0">
                <children>
-                  <JFXToggleButton fx:id="tab_firsSemester" onAction="#handleFirstSemester" text="Первый симестр" textFill="WHITE" toggleColor="#009485">
+                  <JFXToggleButton fx:id="tab_firsSemester" onAction="#handleFirstSemester" text="Первый сeместр" textFill="WHITE" toggleColor="#009485">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </JFXToggleButton>
-                  <JFXToggleButton fx:id="tab_secondSemester" onAction="#handleSecondSemester" text="Второй симестр" textFill="WHITE" toggleColor="#009485">
+                  <JFXToggleButton fx:id="tab_secondSemester" onAction="#handleSecondSemester" text="Второй сeместр" textFill="WHITE" toggleColor="#009485">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </JFXToggleButton>
-                  <JFXButton id="autoGenerationButton" onAction="#handleCreateDiagram" prefHeight="32.0" prefWidth="209.0" style="-fx-border-color: #FFFF; -fx-border-radius: 20px; -fx-background-radius: 20px;" styleClass="autoGenerationButton" stylesheets="@../../../styles/theme.css" text="Сформировать диагармму" textFill="WHITE">
+                  <JFXButton id="autoGenerationButton" onAction="#handleCreateDiagram" prefHeight="32.0" prefWidth="209.0" style="-fx-border-color: #FFFF; -fx-border-radius: 20px; -fx-background-radius: 20px;" styleClass="autoGenerationButton" stylesheets="@../../../styles/theme.css" text="Сформировать диаграмму" textFill="WHITE">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -70,7 +70,7 @@
                         <PieChart fx:id="chart" layoutX="-1.0" prefHeight="529.0" prefWidth="606.0" stylesheets="@../../../styles/Chart.css" visible="false" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="-1.0" AnchorPane.rightAnchor="-4.0" AnchorPane.topAnchor="0.0" />
                         <HBox fx:id="txt_stub" alignment="CENTER" layoutY="-1.0" prefHeight="529.0" prefWidth="601.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-1.0">
                            <children>
-                              <Text fx:id="txt_text" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Выберите группу и симестр">
+                              <Text fx:id="txt_text" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Выберите группу и семестр">
                                  <font>
                                     <Font name="System Bold" size="24.0" />
                                  </font>

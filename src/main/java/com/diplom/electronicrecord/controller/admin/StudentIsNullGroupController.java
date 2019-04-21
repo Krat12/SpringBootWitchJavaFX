@@ -28,7 +28,7 @@ public class StudentIsNullGroupController  extends StudentController implements 
         Student student = tableView.getSelectionModel().getSelectedItem();
         if(student == null){
             AlertMaker.showMaterialDialog(rootPane, contentPane,
-                    "Студент не выбран!", "Пожалуйста, выберите Студента");
+                    "Студент не выбран!", "Пожалуйста, выберите студента");
             return;
         }
 

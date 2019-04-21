@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 public class FxmlViewCreateGroupImpl implements FxmlViewCreate {
     @Override
     public String getTitle() {
-        return "Добавление или редоктирование группы";
+        return "Добавление или редактирование группы";
     }
 
     @Override

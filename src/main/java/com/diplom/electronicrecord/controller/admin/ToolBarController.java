@@ -1,7 +1,7 @@
 package com.diplom.electronicrecord.controller.admin;
 
 import com.diplom.electronicrecord.config.StageManager;
-import com.diplom.electronicrecord.view.admin.FxmlViewMain;
+import com.diplom.electronicrecord.view.admin.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,41 +16,59 @@ public class ToolBarController {
 
     private final FxmlViewMain main;
 
+    private FxmlViewGroup fxmlViewGroup;
+
+    private FxmlViewTeacher fxmlViewTeacher;
+
+    private FxmlViewSpeciality fxmlViewSpeciality;
+
+    private FxmlViewSubject fxmlViewSubject;
+
+    private FxmlViewStatistic fxmlViewStatistic;
+
     @Autowired
-    public ToolBarController(@Lazy StageManager stageManager, @Qualifier("Main") FxmlViewMain main) {
+    public ToolBarController(@Lazy StageManager stageManager, @Qualifier("Main") FxmlViewMain main,
+                             @Qualifier("Group") FxmlViewGroup fxmlViewGroup,
+                             FxmlViewTeacher fxmlViewTeacher, FxmlViewSpeciality fxmlViewSpeciality,
+                             FxmlViewSubject fxmlViewSubject, FxmlViewStatistic fxmlViewStatistic) {
         this.stageManager = stageManager;
         this.main = main;
+        this.fxmlViewGroup = fxmlViewGroup;
+        this.fxmlViewTeacher = fxmlViewTeacher;
+        this.fxmlViewSpeciality = fxmlViewSpeciality;
+        this.fxmlViewSubject = fxmlViewSubject;
+        this.fxmlViewStatistic = fxmlViewStatistic;
     }
 
 
     @FXML
-    void ShowListStudent(ActionEvent event) {
-
+    void ShowStatistic(ActionEvent event) {
+        stageManager.switchScene(fxmlViewStatistic);
     }
 
     @FXML
-    void closeGroup(ActionEvent event) {
+    void ShowMain(ActionEvent event) {
         stageManager.switchScene(main);
     }
 
     @FXML
-    void handleListStudents(ActionEvent event) {
-
+    void showSubject(ActionEvent event) {
+        stageManager.switchScene(fxmlViewSubject);
     }
 
     @FXML
-    void loadAddGroup(ActionEvent event) {
-
+    void ShowSpeciality(ActionEvent event) {
+        stageManager.switchScene(fxmlViewSpeciality);
     }
 
     @FXML
-    void loadListGroup(ActionEvent event) {
-
+    void ShowTeacher(ActionEvent event) {
+        stageManager.switchScene(fxmlViewTeacher);
     }
 
     @FXML
-    void loadStudentList(ActionEvent event) {
-
+    void ShowGroup(ActionEvent event) {
+        stageManager.switchScene(fxmlViewGroup);
     }
 
 }

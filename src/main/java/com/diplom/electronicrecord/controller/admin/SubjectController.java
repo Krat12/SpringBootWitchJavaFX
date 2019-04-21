@@ -188,7 +188,7 @@ public class SubjectController implements Initializable {
         }
 
         Alert alert = new Alert(CONFIRMATION);
-        alert.setTitle("Удаление Предмета ");
+        alert.setTitle("Удаление предмета ");
         alert.setHeaderText("Удалить придмет " + subject.getNameSubject() + " ?");
         alert.setContentText("Вы действительно хотите удалить придмет?");
         Optional<ButtonType> option = alert.showAndWait();

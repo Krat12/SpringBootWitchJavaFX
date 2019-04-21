@@ -284,7 +284,7 @@ public class MarkControllerTeacher extends StudentGradesController implements In
     }
 
     private Integer getMarkInt(String markString){
-        if (markString.equals("н/а")) {
+        if (markString.equals("н/a")) {
             return 0;
         } else if (markString.equals("Зачет")) {
             return 1;

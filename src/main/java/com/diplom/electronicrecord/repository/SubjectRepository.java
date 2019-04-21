@@ -19,4 +19,8 @@ public interface SubjectRepository extends JpaRepository<Subject,Long> {
             " WHERE t.id = :teacherId AND g.id = :groupId")
     List<Subject> findSubjectsByGroupAndTeacher(@Param("groupId") Long groupId,
                                                @Param("teacherId") Long teacherId);
+
+    @Query("FROM Subject AS s JOIN FETCH s.teacherGroups AS stg JOIN FETCH stg.teacher AS t " +
+            " WHERE t.id = :teacherId")
+    List<Subject> findSubjectsByTeacherId(@Param("teacherId") Long teacherId);
 }

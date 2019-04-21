@@ -23,4 +23,6 @@ public interface SubjectService extends GenericService<Subject> {
     void checkExistSubject(String name) throws AlreadyExistException;
 
     List<Subject> findSubjectsByGroupAndTeacher(Long groupId, Long teacherId);
+
+    List<Subject> findSubjectsByTeacherId(Long teacherId);
 }

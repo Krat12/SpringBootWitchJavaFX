@@ -18,18 +18,18 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<StackPane fx:id="rootPane" prefHeight="725.0" prefWidth="509.0" stylesheets="@../../styles/theme.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.diplom.electronicrecord.controller.admin.StudentController">
+<StackPane fx:id="rootPane" prefHeight="725.0" prefWidth="585.0" stylesheets="@../../styles/theme.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.diplom.electronicrecord.controller.admin.StudentController">
    <children>
-      <AnchorPane id="AnchorPane" fx:id="contentPane" prefHeight="725.0" prefWidth="635.0" style="-fx-background-color: #2D75E8 #2D75E8;">
+      <AnchorPane id="AnchorPane" fx:id="contentPane" prefHeight="725.0" prefWidth="536.0" style="-fx-background-color: #2D75E8 #2D75E8;">
          <children>
             <TableView fx:id="tableView" layoutY="180.0" onMouseClicked="#handleMouseClicked" prefHeight="545.0" prefWidth="577.0" stylesheets="@../../styles/table.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="180.0">
               <columns>
                 <TableColumn fx:id="numberStudent" maxWidth="150.0" minWidth="30.0" prefWidth="40.0" resizable="false" text="№" />
-                <TableColumn fx:id="fullName" maxWidth="2500.0" prefWidth="204.46197509765625" text="ФИО" />
-                  <TableColumn fx:id="numberRecord" minWidth="0.0" prefWidth="117.2734375" text="Номер зачетки" />
-                  <TableColumn fx:id="login" maxWidth="2500.0" minWidth="1.57525634765625" prefWidth="66.9383544921875" text="Логин" />
+                <TableColumn fx:id="fullName" prefWidth="190.0" text="ФИО" />
+                  <TableColumn fx:id="numberRecord" minWidth="0.0" prefWidth="101.0" text="Номер зачетки" />
+                  <TableColumn fx:id="login" minWidth="1.57525634765625" prefWidth="177.0" text="Логин" />
                   <TableColumn fx:id="id" maxWidth="2800.0" prefWidth="75.0" text="Id" visible="false" />
-                  <TableColumn fx:id="password" minWidth="0.0" prefWidth="0.0" text="Пароль" />
+                  <TableColumn fx:id="password" minWidth="0.0" prefWidth="144.0" text="Пароль" />
               </columns>
                <columnResizePolicy>
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -56,9 +56,7 @@
                         </Menu>
                         <Menu mnemonicParsing="false" text="Выгрузить">
                           <items>
-                              <MenuItem mnemonicParsing="false" onAction="#exportAsPDF" text="Expert as PDF" />
-                              <MenuItem mnemonicParsing="false" onAction="#exportCSV" text="Expert as CSV" />
-                              <MenuItem mnemonicParsing="false" onAction="#exportAsPDF" text="Expert as XML" />
+                              <MenuItem mnemonicParsing="false" onAction="#exportCSV" text="Export as CSV" />
                           </items>
                         </Menu>
                      </items>
@@ -106,7 +104,7 @@
                      </cursor>
                   </JFXButton>
                   <Separator orientation="VERTICAL" prefHeight="10.0" prefWidth="0.0" scaleX="0.0" style="-fx-background-color: white;" />
-                  <JFXButton fx:id="bnt_NullGroup" contentDisplay="TOP" onAction="#handleIsNullGroup" prefHeight="65.0" prefWidth="83.0" style="-fx-border-color: white;" styleClass="toolBarButton" text="Без групп" textFill="WHITE">
+                  <JFXButton contentDisplay="TOP" onAction="#handleIsNullGroup" prefHeight="65.0" prefWidth="83.0" style="-fx-border-color: white;" styleClass="toolBarButton" text="Без групп" textFill="WHITE">
                      <graphic>
                         <FontAwesomeIconView glyphName="USER" size="30" strokeLineJoin="ROUND" style="-fx-fill: white;" />
                      </graphic>
@@ -121,7 +119,7 @@
             </ToolBar>
             <HBox layoutY="111.0" prefHeight="74.0" prefWidth="577.0" style="-fx-background-color: #2D75E8;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                <children>
-                  <TextField fx:id="txt_search" prefHeight="32.0" prefWidth="197.0" promptText="Поиск" style="-fx-background-radius: 20px; -fx-border-color: transparent;">
+                  <TextField fx:id="txt_search" prefHeight="32.0" prefWidth="280.0" promptText="Поиск" style="-fx-background-radius: 20px; -fx-border-color: transparent;">
                      <HBox.margin>
                         <Insets bottom="20.0" left="20.0" right="20.0" top="22.0" />
                      </HBox.margin>

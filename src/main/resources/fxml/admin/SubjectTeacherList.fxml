@@ -50,7 +50,7 @@
             <TableView fx:id="tableView" layoutY="204.0" prefHeight="483.0" prefWidth="622.0" stylesheets="@../../styles/table.css" AnchorPane.bottomAnchor="-6.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="204.0">
               <columns>
                   <TableColumn fx:id="colSubject" editable="true" prefWidth="211.0" styleClass="table-columnSubject" text="Предмет" />
-                  <TableColumn fx:id="colTeacher" prefWidth="251.0" text="Преподователь" />
+                  <TableColumn fx:id="colTeacher" prefWidth="251.0" text="Преподаватель" />
                   <TableColumn fx:id="col_hours" prefWidth="75.0" text="Количество часов" />
                   <TableColumn fx:id="id" maxWidth="2800.0" prefWidth="75.0" text="Id" visible="false" />
               </columns>

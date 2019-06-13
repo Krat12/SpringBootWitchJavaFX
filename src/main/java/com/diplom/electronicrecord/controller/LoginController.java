@@ -25,6 +25,7 @@ import org.springframework.stereotype.Controller;
 public class LoginController {
 
     private static final String ROLE_ADMIN = "Admin";
+
     private static final String ROLE_TEACHER = "Teacher";
 
     @FXML

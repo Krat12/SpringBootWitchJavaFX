@@ -142,10 +142,6 @@ public class StudentController implements Initializable {
     public StudentController() {
     }
 
-    @FXML
-    void exportAsPDF(ActionEvent event) {
-
-    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

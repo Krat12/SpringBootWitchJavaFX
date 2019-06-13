@@ -135,17 +135,19 @@ public class CreateGroupController implements Initializable {
         try {
             if (CheckSpeciality.isSelected()) {
                 Speciality speciality = new Speciality(txt_speciality.getText());
-                groupService.update(getGroup(speciality));
+                groupService.update(getGroupEdit(speciality));
 
             } else {
                 Speciality speciality = specialityComboBox.getSelectionModel().getSelectedItem();
-                groupService.update(getGroup(speciality));
+                groupService.update(getGroupEdit(speciality));
             }
 
             isPass = true;
+            isInEditMode = FALSE;
         } catch (ValidationException | AlreadyExistException validateException) {
             AlertMaker.showErrorMessage("Ошибка при изменении",validateException.getMessage());
             isPass = false;
+            isInEditMode = FALSE;
         }
 
     }
@@ -154,10 +156,10 @@ public class CreateGroupController implements Initializable {
         try {
             if (CheckSpeciality.isSelected()) {
                 Speciality speciality = new Speciality(txt_speciality.getText());
-                groupService.save(getGroup(speciality));
+                groupService.save(getGroupAdd(speciality));
             } else {
                 Speciality speciality = specialityComboBox.getSelectionModel().getSelectedItem();
-                groupService.save(getGroup(speciality));
+                groupService.save(getGroupAdd(speciality));
             }
             isPass = true;
         } catch (ValidationException | AlreadyExistException validateException) {
@@ -174,15 +176,21 @@ public class CreateGroupController implements Initializable {
         }
     }
 
-    private Group getGroup(Speciality speciality) {
-        if(group == null){
-            group = new Group();
-        }
+    private Group getGroupEdit(Speciality speciality) {
         group.setYear(getYear());
         group.setGroupName(txt_nameGroup.getText());
         group.setSpeciality(speciality);
         group.setStatus("обучаются");
         return group;
+    }
+
+    private Group getGroupAdd(Speciality speciality) {
+        Group groupAdd = new Group();
+        groupAdd.setYear(getYear());
+        groupAdd.setGroupName(txt_nameGroup.getText());
+        groupAdd.setSpeciality(speciality);
+        groupAdd.setStatus("обучаются");
+        return groupAdd;
     }
 
     public void setInEditMode(Boolean inEditMode) {

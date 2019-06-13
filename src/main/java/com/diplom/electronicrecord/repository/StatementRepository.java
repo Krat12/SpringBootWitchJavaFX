@@ -13,7 +13,7 @@ import java.util.List;
 public interface StatementRepository extends CrudRepository<Statement, Long>,StatementRepositoryCustom<Statement>  {
 
     @Query("FROM Statement st JOIN FETCH st.teacher t JOIN FETCH st.group JOIN FETCH st.subject " +
-            "WHERE t.id = :teacherId AND st.date BETWEEN :start AND :endDate")
+            "WHERE t.id = :teacherId AND st.date BETWEEN :start AND :endDate AND st.type <> 'Зачет' ")
     List<Statement> findStatementByTeacherId(@Param("teacherId") Long teacherId,
                                              @Param("start") Date start,
                                              @Param("endDate")Date end);

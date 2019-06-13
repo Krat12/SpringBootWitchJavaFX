@@ -13,7 +13,6 @@ import javafx.stage.StageStyle;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ConfigurableApplicationContext;
-
 import java.io.IOException;
 
 
@@ -30,9 +29,10 @@ public class MainApp extends Application {
 
     @Override
     public void init() {
-        Platform.runLater(this::showSplash);
-        springContext = springBootApplicationContext();
-        Platform.runLater(this::closeSplash);
+            Platform.runLater(this::showSplash);
+            springContext = springBootApplicationContext();
+            Platform.runLater(this::closeSplash);
+
     }
 
     @Override
@@ -71,6 +71,7 @@ public class MainApp extends Application {
             e.printStackTrace();
         }
     }
+
 
 
     private void closeSplash() {
